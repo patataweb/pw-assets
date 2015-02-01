@@ -1,0 +1,27 @@
+/**
+ * Typography
+ **/
+
+@import "colors";
+
+$font-folder: '../fonts/';
+
+// BASE
+$base-font-family: lora, Georgia, "Times New Roman", Times, serif;
+$base-font-size: 16px;
+$base-font-weight: 100;
+
+// HEADING
+$heading-font-family: bebas, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading-font-weight: 300;
+
+// FIXED
+$fixed-font-family: $base-font-family;
+$fixed-font-size: $base-font-size;
+$fixed-line-height: 1;
+
+// QUIET
+$quiet-color: lighten($black, 30%);
+
+// LOUD
+$loud-color: $red;

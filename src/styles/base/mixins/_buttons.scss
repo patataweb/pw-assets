@@ -1,0 +1,10 @@
+@mixin button ($color, $size) {
+  @if map_has_key($button-sizes, $size) {
+    padding   : $button-base-padding * map-get($button-sizes, $size);
+    margin    : $button-base-margin * map-get($button-sizes, $size);
+    font-size : $base-font-size * map-get($button-sizes, $size);
+  }
+  @else {
+    @warn "The size '#{size}' for button is unknown ! Available values are #{map-values($button-sizes)}"
+  }
+}

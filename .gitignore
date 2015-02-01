@@ -1,0 +1,10 @@
+# Created by .ignore support plugin (hsz.mobi)
+
+# Dist Folder
+dist
+
+# Npm dependency forlder
+node_modules
+
+# Bower dependency folder
+bower_components

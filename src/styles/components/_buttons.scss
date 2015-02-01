@@ -1,0 +1,7 @@
+/**
+ * BUTTON Component
+ **/
+
+.btn {
+  @include button(#fffff, small)
+}

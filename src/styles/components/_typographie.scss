@@ -1,0 +1,76 @@
+h1, h2, h3, h4, h5, h6 {
+  font-family: $heading-font-family;
+  font-weight: $heading-font-weight;
+  margin-top: 10px;
+  margin-bottom: 5px;
+  color: lighten($black, 15%);
+  & > small {
+    font-size: 65%;
+    color: lighten($black, 30%);
+    display: block;
+    margin-top: -10px;
+  }
+}
+
+h1, h2 { line-height: 1.1; }
+
+h3, h4 { line-height: 1.3; }
+
+h1 {
+  @include font-size($base-font-size * 2.5);
+  letter-spacing: -1.5px;
+  & > small {
+    letter-spacing: -1px;
+  }
+}
+
+h2 {
+  @include font-size($base-font-size * 2);
+  letter-spacing: -1px;
+  & > small {
+    letter-spacing: normal;
+  }
+}
+
+h3 {
+  @include font-size($base-font-size * 1.8);
+}
+
+h4 {
+  @include font-size($base-font-size * 1.5);
+}
+
+h5 {
+  @include font-size($base-font-size * 1.2);
+}
+
+body {
+  font-family: $base-font-family;
+  font-weight: $base-font-weight;
+  color: lighten($black, 20%);
+  @include font-size($base-font-size);
+}
+
+p {
+  margin: 5px 0;
+}
+
+.fixed {
+  font-family: $fixed-font-family;
+  line-height: $fixed-line-height;
+  @include font-size($fixed-font-size);
+}
+
+.quiet { color: $quiet-color; }
+
+.loud { color: $loud-color; }
+
+.italic { font-style: italic; }
+
+.bold { font-weight: 700; @extend .loud; }
+
+.block-margins { margin: 1em 0; }
+
+.unordered-list { list-style-type: disc; }
+
+.ordered-list { list-style: decimal; }

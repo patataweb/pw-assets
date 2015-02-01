@@ -1,0 +1,15 @@
+/**
+ * Typography Mixin
+ **/
+
+// Functions
+@function calculateRem($size) {
+  $remSize: $size / 16px;
+  @return $remSize * 1rem;
+}
+
+// Mixin
+@mixin font-size($size) {
+  font-size: $size;
+  font-size: calculateRem($size);
+}
