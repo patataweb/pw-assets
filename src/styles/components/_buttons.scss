@@ -3,5 +3,6 @@
  **/
 
 .btn {
-  @include button(#fffff, small)
+  //@include button(#fffff, small);
+  background-color: $red;
 }
