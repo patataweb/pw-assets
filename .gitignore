@@ -36,3 +36,9 @@ jspm_packages
 
 # Dist folder
 dist
+
+# Ruby folder
+vendor
+
+# JSPM
+.jspm.errors

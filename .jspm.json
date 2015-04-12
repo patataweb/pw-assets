@@ -1,14 +1,15 @@
 {
-  "name": "pw-base-aurelia",
+  "name": "pw-assets",
   "version": "0.0.0",
-  "description": "Aurelia Application base for patataweb",
+  "description": "Assets shared Library for patataweb",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
     "patataweb",
-    "aurelia"
+    "assets",
+    "gulp"
   ],
   "author": "Clement Patout <clement.patout@gmail.com>",
   "license": "ISC",
@@ -40,10 +41,6 @@
   },
   "jspm": {
     "dependencies": {
-      "aurelia-bootstrapper": "^0.9.1",
-      "aurelia-framework": "^0.8.4",
-      "aurelia-http-client": "^0.4.3",
-      "aurelia-router": "^0.5.1",
       "fs": "github:jspm/nodelibs-fs@^0.1.0",
       "process": "github:jspm/nodelibs-process@^0.1.0",
       "vm": "github:jspm/nodelibs-vm@^0.1.0",

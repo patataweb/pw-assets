@@ -1,1 +1,1 @@
-# Aurelia Base Application - Patataweb
+# Assets Shared Library - Patataweb

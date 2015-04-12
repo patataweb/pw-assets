@@ -15,7 +15,6 @@
   "author": "Clement Patout <clement.patout@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "aurelia-tools": "git://github.com/aurelia/tools.git",
     "browser-sync": "^1.8.1",
     "conventional-changelog": "0.0.11",
     "del": "^1.1.0",
@@ -42,13 +41,5 @@
     "object.assign": "^1.0.3",
     "run-sequence": "^1.0.2",
     "vinyl-paths": "^1.0.0"
-  },
-  "jspm": {
-    "dependencies": {
-      "aurelia-bootstrapper": "^0.9.1",
-      "aurelia-framework": "^0.8.4",
-      "aurelia-http-client": "^0.4.3",
-      "aurelia-router": "^0.5.1"
-    }
   }
 }
