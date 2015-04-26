@@ -3,12 +3,10 @@ var src = 'src';
 var js = src + '/js';
 var styles = src + '/styles';
 var views = src + '/views';
-var jspm = 'jspm_packages';
-var npm = 'node_modules';
 var dist = 'dist';
 
 module.exports = {
-  "loadPlugin": {
+  'loadPlugin': {
     pattern: [
       'gulp-*',
       'gulp.*',
@@ -17,24 +15,24 @@ module.exports = {
       'run-sequence'
     ]
   },
-  "global": {
-    "src": src,
-    "output": dist
+  'global': {
+    'src': src,
+    'output': dist
   },
-  "styles": {
-    "src": styles + "/app.scss",
-    "output": dist + "/styles",
-    "options": {
+  'styles': {
+    'src': styles + '/app.scss',
+    'output': dist + '/styles',
+    'options': {
 
     },
-    "scssLint": {
+    'scssLint': {
       bundleExec: true
     }
   },
-  "javascript": {
-    "src": js + '/**/*.js',
-    "output": dist + '/js',
-    "options": {
+  'javascript': {
+    'src': js + '/**/*.js',
+    'output': dist + '/js',
+    'options': {
       filename: '',
       filenameRelative: '',
       blacklist: [],
@@ -53,14 +51,18 @@ module.exports = {
         indent: {
           parentheses: true,
           adjustMultilineComment: true,
-          style: "  ",
+          style: '  ',
           base: 0
         }
       }
     }
   },
-  "html": {
-    "src": views + "/**/*.html",
-    "output": dist + "/html"
+  'html': {
+    'src': views + '/**/*.html',
+    'output': dist + '/html',
+    'option': {
+      conditionals: true,
+      spare:true
+    }
   }
 };
