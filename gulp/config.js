@@ -1,6 +1,6 @@
 /* global module */
 var src = 'src';
-var js = src + '/js';
+var js = src + '/scripts';
 var styles = src + '/styles';
 var views = src + '/views';
 var dist = 'dist';

@@ -1,7 +1,7 @@
 {
   "name": "pw-assets",
   "version": "0.0.0",
-  "description": "Assets for patataweb",
+  "description": "Assets Shared Library for patataweb",
   "main": "index.html",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
@@ -13,34 +13,50 @@
     "gulp"
   ],
   "author": "Clement Patout <clement.patout@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/clempat/pw-assets"
+  },
   "license": "ISC",
+  "jspm": {
+    "directories": {
+      "lib": "src/scripts"
+    },
+    "devDependencies": {
+      "traceur": "github:jmcriffey/bower-traceur@0.0.88",
+      "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88"
+    }
+  },
   "devDependencies": {
-    "browser-sync": "^1.8.1",
-    "conventional-changelog": "0.0.11",
-    "del": "^1.1.0",
-    "gulp": "^3.8.10",
-    "gulp-babel": "^5.0.0",
-    "gulp-bump": "^0.1.11",
-    "gulp-changed": "^1.1.0",
+    "gulp": "^3.8.11",
+    "jspm": "^0.15.5",
+    "browser-sync": "^2.6.7",
+    "conventional-changelog": "^0.0.17",
+    "css-sprite": "^0.9.8",
+    "del": "^1.1.1",
+    "gulp-bump": "^0.3.0",
+    "gulp-changed": "^1.2.1",
     "gulp-concat": "^2.5.2",
-    "gulp-jshint": "^1.9.0",
-    "gulp-load-plugins": "^0.9.0",
+    "gulp-imagemin": "^2.2.1",
+    "gulp-jshint": "^1.10.0",
+    "gulp-load-plugins": "^0.10.0",
     "gulp-minify-html": "^1.0.2",
-    "gulp-plumber": "^0.6.6",
-    "gulp-protractor": "^0.0.12",
-    "gulp-sass": "^1.3.2",
-    "gulp-scss-lint": "^0.1.6",
-    "gulp-uglify": "^1.1.0",
+    "gulp-plumber": "^1.0.0",
+    "gulp-protractor": "^1.0.0",
+    "gulp-sass": "^2.0.0-alpha.1",
+    "gulp-scss-lint": "^0.1.12",
+    "gulp-svg-sprite": "^1.1.2",
+    "gulp-svg2png": "^0.3.0",
+    "gulp-uglify": "^1.2.0",
     "gulp-yuidoc": "^0.1.2",
-    "jasmine-core": "^2.1.3",
-    "jshint-stylish": "^1.0.0",
-    "karma": "^0.12.28",
-    "karma-6to5-preprocessor": "^3.0.0",
-    "karma-chrome-launcher": "^0.1.7",
-    "karma-jasmine": "^0.3.2",
-    "karma-jspm": "^1.0.1",
-    "object.assign": "^1.0.3",
-    "run-sequence": "^1.0.2",
-    "vinyl-paths": "^1.0.0"
+    "jasmine-core": "^2.3.0",
+    "jshint-stylish": "^1.0.1",
+    "karma": "^0.12.32",
+    "karma-6to5-preprocessor": "^3.0.1",
+    "karma-chrome-launcher": "^0.1.8",
+    "karma-jasmine": "^0.3.5",
+    "karma-jspm": "^1.1.4",
+    "object.assign": "^2.0.1",
+    "run-sequence": "^1.1.0"
   }
 }

@@ -1,8 +1,8 @@
 // Load configs
-var config          = require("./gulp/config");
+var config = require('./gulp/config');
 
 // Load Lib
-var gulp    = require("./node_modules/gulp/index");
+var gulp    = require('./node_modules/gulp/index');
 var plugins = require('gulp-load-plugins')(config.loadPlugin);
 
 // Load tasks
@@ -13,4 +13,4 @@ gulp.task('javascript', require('./gulp/tasks/_javascript')(gulp, plugins, confi
 gulp.task('clean', require('./gulp/tasks/_clean')(gulp, plugins, config));
 
 // Build tasks
-gulp.task('build', require('./gulp/tasks/_build')(plugins, function(){}));
+gulp.task('build', require('./gulp/tasks/_build')(plugins, function() {}));
