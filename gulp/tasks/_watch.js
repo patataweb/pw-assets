@@ -1,14 +1,13 @@
-//@todo not ready
-module.exports = function(gulp) {
-  return function() {
-    function reportChange(event) {
-      console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
-    }
+module.exports = function(gulp, plugins, config) {
+  'use strict';
 
-    gulp.task('watch', ['serve'], function() {
-      gulp.watch(path.source, ['build-system', browserSync.reload]).on('change', reportChange);
-      gulp.watch(path.html, ['build-html', browserSync.reload]).on('change', reportChange);
-      gulp.watch(path.style, browserSync.reload).on('change', reportChange);
-    });
+  function reportChange(event) {
+    console.log('File ' + event.path + ' was ' + event.type + ', running tasks...');
   }
+
+  return function() {
+      gulp.watch(config.javascript.src, ['javascript', plugins.browserSync.reload]).on('change', reportChange);
+      gulp.watch(config.html.src, ['html', plugins.browserSync.reload]).on('change', reportChange);
+      gulp.watch(config.styles.watch, ['sass', plugins.browserSync.reload]).on('change', reportChange);
+  };
 };

@@ -23,6 +23,7 @@ module.exports = {
   'styles': {
     'src': styles + '/app.scss',
     'output': dist + '/styles',
+    'watch': styles + '/**/*.scss',
     'options': {
       'includePaths': []
     },

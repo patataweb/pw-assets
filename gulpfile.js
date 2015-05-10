@@ -15,4 +15,8 @@ gulp.task('clean', require('./gulp/tasks/_clean')(gulp, plugins, config));
 
 // Build tasks
 gulp.task('build', require('./gulp/tasks/_build')(plugins));
-gulp.task('serve', ['build'] ,require('./gulp/tasks/_serve')(plugins, plugins, config));
+gulp.task('serve', ['build'], require('./gulp/tasks/_serve')(plugins, plugins, config));
+
+gulp.task('watch', require('./gulp/tasks/_watch')(gulp, plugins, config));
+
+gulp.task('default', ['serve', 'watch']);

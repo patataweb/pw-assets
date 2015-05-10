@@ -1,6 +1,5 @@
 module.exports = function(gulp, plugins, config) {
   'use strict';
-  var assign = Object.assign || require('object.assign');
 
   return function() {
     return gulp
