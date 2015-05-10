@@ -6,9 +6,10 @@
 @import "base/variables";
 @import "base/mixins";
 
+// External
+/* @importPath '~bourbon' */
+@import '_bourbon.scss';
+
 // Component
-//@import "components/buttons";
-@import "components/fonts";
-@import "components/forms";
-@import "components/grid";
-@import "components/typographie";
+@import 'components/fonts';
+@import 'components/typographie';

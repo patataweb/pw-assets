@@ -1,6 +1,10 @@
-module.exports = function (plugins, callback) {
+module.exports = function(plugins, callback) {
   'use strict';
-  return function () {
-    return plugins.runSequence('clean', ['javascript', 'html', 'sass'], callback);
+  return function() {
+    if (!callback) {
+      callback = function() {
+      };
+    }
+    return plugins.runSequence('clean', ['javascript', 'html', 'sass', 'font'], callback);
   };
 };

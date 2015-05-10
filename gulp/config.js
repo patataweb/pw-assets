@@ -12,7 +12,8 @@ module.exports = {
       'gulp.*',
       'del',
       'vinyl-paths',
-      'run-sequence'
+      'run-sequence',
+      'browser-sync'
     ]
   },
   'global': {
@@ -23,46 +24,45 @@ module.exports = {
     'src': styles + '/app.scss',
     'output': dist + '/styles',
     'options': {
+      'includePaths': []
+    },
+    'minifyCss': {
 
     },
-    'scssLint': {
-      bundleExec: true
+    'autoprefixer': {
+      browsers: ['last 2 versions'],
+      cascade: false
     }
   },
   'javascript': {
     'src': js + '/**/*.js',
     'output': dist + '/js',
-    'options': {
-      filename: '',
-      filenameRelative: '',
-      blacklist: [],
-      whitelist: [],
-      modules: '',
-      sourceMap: true,
-      sourceMapName: '',
-      sourceFileName: '',
-      sourceRoot: '',
-      moduleRoot: '',
-      moduleIds: false,
-      experimental: false,
-      format: {
-        comments: false,
-        compact: false,
-        indent: {
-          parentheses: true,
-          adjustMultilineComment: true,
-          style: '  ',
-          base: 0
-        }
-      }
-    }
+    'babel': {  },
+    'jshint': { }
   },
   'html': {
     'src': views + '/**/*.html',
-    'output': dist + '/html',
+    'output': dist,
     'option': {
       conditionals: true,
       spare:true
+    }
+  },
+  'fonts': {
+    'src': src + '/fonts',
+    'output': dist + '/fonts'
+  },
+  'sourcemap': {  },
+  'browserSync': {
+    open  : true,
+    port  : 9090,
+    server: {
+      baseDir   : ['src', 'dist'],
+      middleware: function(req, res, next) {
+        'use strict';
+        res.setHeader('Access-Control-Allow-Origin', '*');
+        next();
+      }
     }
   }
 };

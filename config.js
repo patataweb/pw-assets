@@ -11,6 +11,7 @@ System.config({
 System.config({
   "map": {
     "aslansky/css-sprite": "github:aslansky/css-sprite@0.9.8",
+    "bourbon": "github:thoughtbot/bourbon@4.2.3",
     "browser-sync": "npm:browser-sync@2.6.7",
     "conventional-changelog": "npm:conventional-changelog@0.0.17",
     "css-sprite": "npm:css-sprite@0.9.8",
@@ -41,6 +42,7 @@ System.config({
     "object.assign": "npm:object.assign@2.0.1",
     "pw-assets": "npm:pw-assets@0.0.1",
     "run-sequence": "npm:run-sequence@1.1.0",
+    "thoughtbot/bourbon": "github:thoughtbot/bourbon@4.2.3",
     "traceur": "github:jmcriffey/bower-traceur@0.0.88",
     "traceur-runtime": "github:jmcriffey/bower-traceur-runtime@0.0.88",
     "github:jspm/nodelibs-assert@0.1.0": {

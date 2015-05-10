@@ -9,8 +9,10 @@ var plugins = require('gulp-load-plugins')(config.loadPlugin);
 gulp.task('html', require('./gulp/tasks/_html')(gulp, plugins, config));
 gulp.task('sass', require('./gulp/tasks/_sass')(gulp, plugins, config));
 gulp.task('javascript', require('./gulp/tasks/_javascript')(gulp, plugins, config));
+gulp.task('font', require('./gulp/tasks/_font')(gulp, plugins, config));
 
 gulp.task('clean', require('./gulp/tasks/_clean')(gulp, plugins, config));
 
 // Build tasks
-gulp.task('build', require('./gulp/tasks/_build')(plugins, function() {}));
+gulp.task('build', require('./gulp/tasks/_build')(plugins));
+gulp.task('serve', ['build'] ,require('./gulp/tasks/_serve')(plugins, plugins, config));
