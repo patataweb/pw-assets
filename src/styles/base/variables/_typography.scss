@@ -7,12 +7,12 @@
 $font-folder: '../fonts/';
 
 // BASE
-$base-font-family: lora, Georgia, "Times New Roman", Times, serif;
+$base-font-family: "open Sans", Arial, sans-serif;
 $base-font-size: 16px;
 $base-font-weight: 100;
 
 // HEADING
-$heading-font-family: bebas, "Helvetica Neue", Helvetica, Arial, sans-serif;
+$heading-font-family: $base-font-family;
 $heading-font-weight: 300;
 
 // FIXED

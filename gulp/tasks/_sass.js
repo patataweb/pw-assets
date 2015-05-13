@@ -5,9 +5,15 @@ module.exports = function(gulp, plugins, config) {
 
     var sassOptions = config.styles.options;
 
+    var sass = plugins.sass(sassOptions);
+    sass.on('error', function(error) {
+      plugins.sass.logError(error);
+      this.end();
+    });
+
     return gulp
       .src(config.styles.src)
-      .pipe(plugins.plumber())
+      .pipe(plugins.plumber(config.plumber))
       .pipe(plugins.systemjsResolver({systemConfig: './config.js', includePaths: sassOptions.includePaths}))
       .pipe(plugins.sourcemaps.init())
         .pipe(plugins.sass(sassOptions))

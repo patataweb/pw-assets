@@ -1,14 +1,11 @@
 h1, h2, h3, h4, h5, h6 {
   font-family: $heading-font-family;
   font-weight: $heading-font-weight;
-  margin-top: 10px;
-  margin-bottom: 5px;
   color: lighten($black, 15%);
   & > small {
     font-size: 65%;
     color: lighten($black, 30%);
     display: block;
-    margin-top: -5px;
   }
 }
 
@@ -53,7 +50,7 @@ body {
 
 p {
   margin: 5px 0;
-    filter: grayscale(50%);
+  filter: grayscale(50%);
 }
 
 .fixed {

@@ -16,6 +16,13 @@ module.exports = {
       'browser-sync'
     ]
   },
+  'plumber': {
+    errorHandler: function(e) {
+      'use strict';
+      console.log(e); // @todo nicer error with gulp utility
+      this.emit('end');
+    }
+  },
   'global': {
     'src': src,
     'output': dist
