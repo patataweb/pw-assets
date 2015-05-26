@@ -58,17 +58,3 @@ p {
   line-height: $fixed-line-height;
   @include font-size($fixed-font-size);
 }
-
-.quiet { color: $quiet-color; }
-
-.loud { color: $loud-color; }
-
-.italic { font-style: italic; }
-
-.bold { font-weight: 700; @extend .loud; }
-
-.block-margins { margin: 1em 0; }
-
-.unordered-list { list-style-type: disc; }
-
-.ordered-list { list-style: decimal; }

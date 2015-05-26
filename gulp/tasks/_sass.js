@@ -1,8 +1,6 @@
 module.exports = function(gulp, plugins, config) {
   'use strict';
   return function() {
-    var jspm = require('jspm');
-
     var sassOptions = config.styles.options;
 
     var sass = plugins.sass(sassOptions);
