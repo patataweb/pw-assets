@@ -7,7 +7,7 @@
 </head>
 <body>
 <h1>Step line</h1>
-<ul class="timeline" data-step="0" data-direction="down">
+<ul class="timeline" data-step="0">
   <li class="timeline__item">I just want to talk</li>
   <li class="timeline__item">It has nothing to do with mating</li>
   <li class="timeline__item">Fry, that doesn't make sense.</li>
@@ -25,12 +25,6 @@
       step = parseInt(elements[i].getAttribute('data-step'));
       if (step === 0 || step === 6) {
         dir = -dir;
-      }
-
-      if (dir === -1) {
-        elements[i].setAttribute('data-direction', 'up');
-      } else {
-        elements[i].setAttribute('data-direction', 'down');
       }
 
       step = step + dir;

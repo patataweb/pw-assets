@@ -8,7 +8,8 @@
 // VARIABLES
 $timeline--item--disc--size: 15px !default;
 $timeline--item--pipe--size: 5px !default;
-$timeline--padding--left: 10px !default;
+$timeline--padding--left: 35px !default;
+$timeline--space: $timeline--padding--left / 2 - $timeline--item--pipe--size;
 $timeline--item--padding: 15px !default;
 $timeline--item--line-height: 20px !default;
 $timeline--base--index: 0 !default;
@@ -20,12 +21,13 @@ $timeline--color-inactive: lighten($timeline--color-active, 25%);
 .timeline {
   list-style: none;
   position: relative;
+  overflow: hidden;
 
-  padding-left: $timeline--item--disc--size + $timeline--padding--left;
+  padding-left: $timeline--padding--left;
 
   line-height: $timeline--item--line-height;
 
-  &::before {
+  &:before {
     content: '\00a0';
     background-color: $timeline--color-inactive;
 
@@ -34,58 +36,44 @@ $timeline--color-inactive: lighten($timeline--color-active, 25%);
 
     position: absolute;
     top: 0;
-    left: $timeline--item--disc--size/2 - $timeline--item--pipe--size/2;
+    left: $timeline--space + $timeline--item--pipe--size/2;
 
     z-index: $timeline--base--index;
   }
 
-  &::after {
+  &:after {
     content: '\00a0';
     background-color: $timeline--color-active;
 
     width: $timeline--item--pipe--size + 2px;
-    height: 100%;
+    height: 0;
 
     position: absolute;
     top: 0;
-    left: $timeline--item--disc--size/2 - $timeline--item--pipe--size/2 - 1px;
+    left: $timeline--space + $timeline--item--pipe--size/2 - 1px;
 
     transition: all $timeline--clock;
-
-    clip-path: inset(0 0 100% 0);
 
     z-index: $timeline--base--index + 1;
   }
 
-  &[data-direction="up"] {
-    &:after {
-      transition: all $timeline--clock calc(#{$timeline--clock} - 200ms);
-    }
-    .timeline__item:after {
-      transition: all $timeline--clock;
-    }
-  }
-
-  &[data-direction="down"] {
-    &:after {
-      transition: all $timeline--clock;
-    }
-    .timeline__item:after {
-      transition: all $timeline--clock calc(#{$timeline--clock} - 200ms);
-    }
-  }
-
   @for $i from 1 through 20 {
     &[data-step="#{$i}"] {
-      &::after {
+      &:after {
         $total: 2 * $timeline--item--padding + $timeline--item--line-height;
         $half: $total/2;
-        clip-path: inset(0 0 calc(100% - #{$total} * #{$i} + #{$half}) 0);
+        height: calc(#{$total} * #{$i} - #{$half});
       }
       @for $j from 1 through $i {
-        .timeline__item:nth-child(#{$j}):after, .timeline__item:nth-child(#{$j}):before {
-          clip-path: inset(0 0 0 0);
+        .timeline__item:nth-child(#{$j}):before {
+          height: $timeline--item--disc--size;
+          width: $timeline--item--disc--size;
+
+          top: calc(50% - #{$timeline--item--disc--size} / 2);
+          left: - ($timeline--padding--left + $timeline--item--disc--size) / 2;
+
           animation: bounce $timeline--clock linear $timeline--clock forwards;
+          transition: all $timeline--clock linear $timeline--clock - 0.5 * $timeline--clock;
         }
       }
     }
@@ -96,31 +84,18 @@ $timeline--color-inactive: lighten($timeline--color-active, 25%);
   padding: $timeline--item--padding 0;
   position: relative;
 
-  &::before, &:after {
+  &:before {
     content: '\00a0';
-    background-color: $timeline--color-inactive;
+    background-color: $timeline--color-active;
     border-radius: 50%;
-    width: $timeline--item--disc--size;
-    height: $timeline--item--disc--size;
+    width: $timeline--item--pipe--size;
+    height: 0;
 
     position: absolute;
-    top: calc(50% - #{$timeline--item--disc--size} / 2);
-    left: -$timeline--item--disc--size - $timeline--padding--left;
+    top: calc(50% - #{$timeline--item--disc--size} / 2  + 3px);
+    left: - ($timeline--padding--left + $timeline--item--pipe--size) / 2;
 
     z-index: $timeline--base--index + 2;
-
-    transition: all $timeline--clock calc(#{$timeline--clock} - 200ms);
-
-  }
-
-  &::after {
-    background-color: $timeline--color-active;
-    clip-path: inset(0 0 100% 0);
-    width: $timeline--item--disc--size + 2px;
-    height: $timeline--item--disc--size + 2px;
-
-    left: -$timeline--item--disc--size - $timeline--padding--left - 1px;
-    top: calc(50% - #{$timeline--item--disc--size} / 2 - 1px);
   }
 }
 
