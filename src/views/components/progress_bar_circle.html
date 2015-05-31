@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>Test Progress Bar Circle</title>
+	<link rel="stylesheet" href="/styles/progress.css">
+</head>
+<body>
+	<div class="radial-progress half" data-progress="0" data-max="35">
+		<div class="inset-head"></div>
+		<div class="circle">
+			<div class="mask">
+				<div class="fill"></div>
+			</div>
+			<div class="badge" style="background-color: brown"></div>
+		</div>
+		<div class="inset">
+			<div class="portrait">
+				<span class="icon-user"></span>
+			</div>
+		</div>
+		<div class="label">
+			<span class="name">Max Mustermann</span>
+		</div>
+		<div class="label2">
+			<span class="hours">10 h / 35 h</span>
+		</div>
+	</div>
+	<div class="radial-progress half" data-progress="0" data-max="35">
+		<div class="inset-head"></div>
+		<div class="circle">
+			<div class="mask">
+				<div class="fill"></div>
+			</div>
+			<div class="badge" style="background-color: blueviolet"></div>
+		</div>
+		<div class="inset">
+			<div class="portrait">
+				<img src="http://lorempixel.com/87/87/people/9/">
+			</div>
+		</div>
+		<div class="label">
+			<span class="name">Max Mustermann</span>
+		</div>
+		<div class="label2">
+			<span class="hours">10 h / 35 h</span>
+		</div>
+	</div>
+	<div class="radial-progress half" data-progress="0" data-max="40">
+		<div class="inset-head"></div>
+		<div class="circle">
+			<div class="mask">
+				<div class="fill"></div>
+			</div>
+			<div class="badge" style="background-color: blueviolet"></div>
+		</div>
+		<div class="inset">
+			<div class="portrait">
+				<img src="http://lorempixel.com/87/87/people/8/">
+			</div>
+		</div>
+		<div class="label">
+			<span class="name">Max Mustermann</span>
+		</div>
+		<div class="label2">
+			<span class="hours">10 h / 35 h</span>
+		</div>
+	</div>
+	<div class="radial-progress half holiday" data-max="35">
+		<div class="inset-head"></div>
+		<div class="circle">
+			<div class="mask">
+				<div class="fill"></div>
+			</div>
+			<div class="badge" style="background-color: royalblue"></div>
+		</div>
+		<div class="inset">
+			<div class="portrait">
+				<span class="icon-user"></span>
+			</div>
+		</div>
+		<div class="label">
+			<span class="name">Max Mustermann</span>
+		</div>
+		<div class="label2">
+			<span class="hours">10 h / 35 h</span>
+		</div>
+		<div class="label-special"><span>HOLIDAY</span></div>
+	</div>
+	<div class="radial-progress half holiday" data-max="35">
+		<div class="inset-head"></div>
+		<div class="circle">
+			<div class="mask">
+				<div class="fill"></div>
+			</div>
+			<div class="badge" style="background-color: salmon"></div>
+		</div>
+		<div class="inset">
+			<div class="portrait">
+				<img src="http://lorempixel.com/87/87/people/1/">
+			</div>
+		</div>
+		<div class="label">
+			<span class="name">Max Mustermann</span>
+		</div>
+		<div class="label2">
+			<span class="hours">10 h / 35 h</span>
+		</div>
+		<div class="label-special"><span>HOLIDAY</span></div>
+	</div>
+	<script type="text/javascript">
+    var elements = document.querySelectorAll('.radial-progress'), i, len;
+
+    window.randomize = function() {
+      var i, len, hours, percentage;
+
+
+      for (i = 0, len = elements.length; i < len; i++) {
+        percentage = Math.floor(Math.random() * 100);
+        hours = percentage * parseFloat(elements[i].getAttribute('data-max')) / 100;
+        elements[i].querySelector('.label2')
+          .innerText = hours.toString() + ' h / ' + elements[i].getAttribute('data-max').toString() + ' h';
+        elements[i].setAttribute('data-progress', percentage.toString());
+      }
+
+    };
+    document.querySelector('body').addEventListener('click', function () {
+      window.randomize();
+    });
+    for (i = 0, len = elements.length; i < len; i++) {
+      elements[i].addEventListener('click', function (e) {
+        e.stopImmediatePropagation();
+
+        if (e.currentTarget.classList.contains('holiday')) {
+          return
+        }
+
+        for (i = 0, len = elements.length; i < len; i++) {
+          elements[i].classList.remove('selected');
+        }
+
+        e.currentTarget.classList.toggle('selected');
+      })
+    }
+  </script>
+</body>
+</html>

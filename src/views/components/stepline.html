@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+  <meta charset="UTF-8">
+  <title></title>
+  <link rel="stylesheet" href="/styles/stepline.css">
+</head>
+<body>
+<h1>Step line</h1>
+<ul class="timeline" data-step="0" data-direction="down">
+  <li class="timeline__item">I just want to talk</li>
+  <li class="timeline__item">It has nothing to do with mating</li>
+  <li class="timeline__item">Fry, that doesn't make sense.</li>
+  <li class="timeline__item">It must be wonderful.</li>
+  <li class="timeline__item">You lived before you met me?!</li>
+</ul>
+
+<script type="text/javascript">
+  var elements = document.querySelectorAll('.timeline'), i, len, dir = -1;
+
+  window.update = function() {
+    var i, len, step;
+
+    for (i = 0, len = elements.length; i < len; i++) {
+      step = parseInt(elements[i].getAttribute('data-step'));
+      if (step === 0 || step === 6) {
+        dir = -dir;
+      }
+
+      if (dir === -1) {
+        elements[i].setAttribute('data-direction', 'up');
+      } else {
+        elements[i].setAttribute('data-direction', 'down');
+      }
+
+      step = step + dir;
+      elements[i].setAttribute('data-step', step.toString());
+    }
+
+  };
+  document.querySelector('body').addEventListener('click', function() {
+    window.update();
+  });
+</script>
+<script src="https://ajax.googleapis.com/ajax/libs/webfont/1.5.18/webfont.js"></script>
+<script>
+  WebFont.load({
+    google: {
+      families: ['Open Sans', 'Lora']
+    }
+  });
+</script>
+</body>
+</html>

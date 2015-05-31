@@ -39,6 +39,7 @@ System.config({
     "karma-chrome-launcher": "npm:karma-chrome-launcher@0.1.8",
     "karma-jasmine": "npm:karma-jasmine@0.3.5",
     "karma-jspm": "npm:karma-jspm@1.1.4",
+    "mathsass": "npm:mathsass@0.9.5",
     "object.assign": "npm:object.assign@2.0.1",
     "pw-assets": "npm:pw-assets@0.0.1",
     "run-sequence": "npm:run-sequence@1.1.0",

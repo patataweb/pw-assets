@@ -1,0 +1,190 @@
+/**
+ * ==============================
+ * Radial Progress component
+ * ==============================
+ */
+
+@import "../base";
+
+// Variables
+$progress--circle--background: #d6dadc !default;
+$progress--circle--color: #97a71d !default;
+$progress--circle--color-warning: #fd8603 !default;
+$progress--circle--color-danger: #df151a !default;
+$progress--circle--size: 120px !default;
+$progress--transition--length: 1s !default;
+$progress--inset--size: 85px !default;
+$progress--inset--color: #fff !default;
+$progress--inset--border: solid 1px lightgrey !default;
+$progress--increment: 180deg/100 !default;
+$progress--portrait--size: $progress--inset--size !default;
+$progress--portrait--ico--size: 65px !default;
+$progress--label--height: 11px !default;
+$progress--label--space: 3px !default;
+$progress--label--background: rgba(0, 0, 0, 0.7) !default;
+$progress--label--color: #fff !default;
+$progress--disabled--bg-color: lightgrey !default;
+$progress--disabled--color: grey !default;
+$progress--special--shadow: 0 0 2px #c00 !default;
+$progress--special--width: 80px !default;
+
+.radial-progress {
+  background-color: $progress--circle--background;
+  border-radius: 50%;
+  width: $progress--circle--size;
+  height: $progress--circle--size;
+  cursor: pointer;
+
+  .circle {
+    .mask, .fill {
+      border-radius: 50%;
+      position: absolute;
+      height: $progress--circle--size;
+      width: $progress--circle--size;
+      transition: all $progress--transition--length;
+    }
+    .mask {
+      /* rect(<top>, <right>, <bottom>, <left>) */
+      clip: rect($progress--circle--size/2, $progress--circle--size, $progress--circle--size, 0px);
+      .fill {
+        /* rect(<top>, <right>, <bottom>, <left>) */
+        clip: rect(0px, $progress--circle--size, $progress--circle--size/2, 0px)
+      }
+    }
+    .badge {
+      position: absolute;
+      width: $progress--circle--size/2;
+      height: 10px;
+      margin-top: $progress--circle--size/3;
+      margin-left: 0;
+    }
+    .shadow {
+      width: $progress--circle--size;
+      height: $progress--circle--size;
+      position: absolute;
+      border-radius: 50%;
+    }
+  }
+  .inset-head {
+    width: $progress--circle--size;
+    height: $progress--circle--size/2;
+    position: absolute;
+    background-color: $progress--inset--color;
+  }
+  .inset {
+    width: $progress--inset--size;
+    height: $progress--inset--size;
+    position: absolute;
+    margin-left: ($progress--circle--size - $progress--inset--size)/2;
+    margin-top: ($progress--circle--size - $progress--inset--size)/2;
+    background-color: $progress--inset--color;
+    border-radius: 50%;
+    overflow: hidden;
+    border: $progress--inset--border;
+    z-index: 1;
+  }
+  &.selected .inset {
+    &:before {
+      position: absolute;
+      top: 0;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      padding-top: $progress--inset--size/2;
+      background-color: rgba(0,0,255,0.3);
+      content: '\e601';
+      font-family: 'fw-icon';
+      font-size: 28px;
+      text-align: center;
+      color: #fff;
+    }
+  }
+  .portrait {
+    font-size: $progress--portrait--ico--size;
+    width: $progress--portrait--size;
+    height: $progress--portrait--size;
+    margin-top: ($progress--inset--size - $progress--portrait--size) / 2;
+    margin-left: ($progress--inset--size - $progress--portrait--size) / 2;
+    text-align: center;
+    border-radius: 50%;
+    overflow: hidden;
+    padding-top: ($progress--portrait--size - $progress--portrait--ico--size) / 4;
+    img {
+      margin-top: -1px - ($progress--portrait--size - $progress--portrait--ico--size) / 4;
+      margin-bottom: -1px;
+      width: $progress--inset--size + 1px;
+      height: $progress--inset--size + 1px;
+    }
+  }
+  .label, .label2 {
+    background-color: $progress--label--background;
+    color: $progress--label--color;
+    font-size: $progress--label--height;
+    font-weight: bold;
+    position: absolute;
+  }
+  .label {
+    margin-top: ($progress--circle--size - $progress--inset--size)/2;
+    margin-left: $progress--circle--size/2;
+    padding: $progress--label--space $progress--label--space $progress--label--space $progress--inset--size/2;
+  }
+  .label2 {
+    margin-top: ($progress--circle--size - $progress--inset--size)/2 + ($progress--label--height + 2*$progress--label--space) + $progress--label--space;
+    margin-left: $progress--circle--size/2;
+    padding: $progress--label--space $progress--label--space $progress--label--space ($progress--inset--size/2 + $progress--label--space);
+    transition: background-color $progress--transition--length;
+    .name {
+      white-space: nowrap;
+      max-width: 100%;
+    }
+  }
+  @for $progress--i from 0 through 100 {
+    &[data-progress="#{$progress--i}"] {
+      .mask.full, .fill {
+        transform: rotate($progress--increment * $progress--i);
+      }
+      .fill.fix {
+        transform: rotate($progress--increment * $progress--i * 2);
+      }
+
+      @if $progress--i > 95 {
+        .fill, .label2 {
+          background-color: $progress--circle--color-danger;
+        }
+      } @else if $progress--i > 75 {
+        .fill, .label2 {
+          background-color: $progress--circle--color-warning;
+        }
+      } @else {
+        .fill, .label2 {
+          background-color: $progress--circle--color;
+        }
+      }
+    }
+  }
+  &.holiday {
+    cursor: not-allowed;
+    .fill, .label2 {
+      background-color: $progress--disabled--bg-color;
+      color: $progress--disabled--color;
+    }
+    .label-special {
+      position: absolute;
+      color: $progress--circle--color-danger;
+      text-align: center;
+      margin-left: (cos(45deg) * $progress--special--width)/2 - $progress--label--space;
+      margin-top: (sin(45deg) * $progress--special--width) - $progress--label--space;
+      z-index: 2;
+      span {
+        box-shadow: $progress--special--shadow;
+        display: block;
+        filter: alpha(opacity=70);
+        font-weight: bold;
+        opacity: 0.7;
+        text-shadow: $progress--special--shadow;
+        transform: rotate(45deg);
+        width: $progress--special--width;
+      }
+    }
+  }
+}

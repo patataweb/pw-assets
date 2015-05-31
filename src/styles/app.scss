@@ -2,15 +2,8 @@
  * App Bootstrap
  **/
 
-// Base Core
-@import "base/variables";
-@import "base/mixins";
+// Import base application
+@import "base";
+@import "base/typographie";
 
-// External
-/* @importPath '~bourbon' */
-@import '_bourbon.scss';
-
-// Component
-@import 'components/fonts';
-@import 'components/typographie';
-@import 'components/card';
+// Import generic component

@@ -23,7 +23,8 @@
       "lib": "src"
     },
     "dependencies": {
-      "bourbon": "github:thoughtbot/bourbon@^4.2.3"
+      "bourbon": "github:thoughtbot/bourbon@^4.2.3",
+      "mathsass": "npm:mathsass@^0.9.5"
     },
     "devDependencies": {
       "traceur": "github:jmcriffey/bower-traceur@0.0.88",

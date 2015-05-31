@@ -28,7 +28,7 @@ module.exports = {
     'output': dist
   },
   'styles': {
-    'src': styles + '/app.scss',
+    'src': [styles + '/base.scss', styles + '/app.scss', styles + '/components/*.scss'],
     'output': dist + '/styles',
     'watch': styles + '/**/*.scss',
     'options': {

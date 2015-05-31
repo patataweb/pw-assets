@@ -1,3 +1,20 @@
+/**
+ * ==============================
+ * Cards component
+ * ==============================
+ */
+
+@import "../base";
+
+// Card
+// Max char list Best match:
+// card__title: 40
+// card__subtitle: 22
+// card__description: 265 (min: 220)
+$card--color: #8fbc8f !default;
+$card--duration: 0.3s !default;
+$card--height: 335px !default;
+
 .list__cards {
   display: flex;
   flex-wrap: wrap;
@@ -10,10 +27,10 @@
     padding: 0 0 10px 10px;
     width: calc(100% - 20px);
 
-    @include breakpoint('tablet') {
+    @include breakpoint($tablet) {
       width: calc(50% - 20px);
     }
-    @include breakpoint('laptop') {
+    @include breakpoint($desktop) {
       width: calc(33.33% - 20px);
     }
   }
